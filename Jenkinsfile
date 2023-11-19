@@ -1,7 +1,7 @@
 pipeline{
 	agent any
 	environment {
-		DOCKERHUB_PASS = 'Yamini@1234'
+		DOCKERHUB_PASS = credentials('docker-token')
 	}
 	stages{
 		stage("Building the Student Survey Image"){
@@ -11,16 +11,16 @@ pipeline{
 					sh 'rm -rf *.jar'
 					sh 'mvn clean package'
 					sh 'echo ${BUILD_TIMESTAMP}'
-					sh 'docker login -u eeshwar6114 -p ${DOCKERHUB_PASS}'
-					sh 'docker build -t eeshwar4116/surveyjar .'
-					sh  'docker tag surveyjar eeshwar4116/survey'
+					sh 'echo $DOCKERHUB_PASS_PSW | docker login -u $DOCKERHUB_PASS_USR --password-stdin'
+					sh 'docker build -t eeshwar4116/survey:$BUILD_TIMESTAMP .'
+					
 				}
 			}
 		}
 		stage("Pushing image to docker"){
 			steps{
 				script{
-					sh 'docker push eeshwar4116/survey'
+					sh 'docker push eeshwar4116/survey:$BUILD_TIMESTAMP'
 				}
 			}
 		}

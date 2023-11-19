@@ -9,7 +9,6 @@ pipeline{
 				script{
 					checkout scm
 					sh 'rm -rf *.jar'
-					sh 'jar -cvf surveyjar.jar -C /var/lib/jenkins/workspace/surveyjar .'
 					sh 'mvn clean package'
 					sh 'echo ${BUILD_TIMESTAMP}'
 					sh 'echo $DOCKERHUB_PASS_PSW | docker login -u $DOCKERHUB_PASS_USR --password-stdin'

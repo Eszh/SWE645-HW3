@@ -11,15 +11,16 @@ pipeline{
 					sh 'rm -rf *.jar'
 					sh 'mvn clean package'
 					sh 'echo ${BUILD_TIMESTAMP}'
-					sh 'docker login -u ygona -p ${DOCKERHUB_PASS}'
-					sh 'docker build -t ygona/surveyjar .'
+					sh 'docker login -u eeshwar6114 -p ${DOCKERHUB_PASS}'
+					sh 'docker build -t eeshwar4116/surveyjar .'
+					sh  'docker tag surveyjar eeshwar4116/survey'
 				}
 			}
 		}
 		stage("Pushing image to docker"){
 			steps{
 				script{
-					sh 'docker push ygona/surveyjar'
+					sh 'docker push eeshwar4116/survey'
 				}
 			}
 		}

@@ -54,6 +54,11 @@
 					<image>
 						<builder>paketobuildpacks/builder-jammy-base:latest</builder>
 					</image>
+					<rules>
+                                    <requireMavenVersion>
+                                        <version>[3.8.7]</version>
+                                    </requireMavenVersion>
+                                </rules>
 				</configuration>
 			</plugin>
 		</plugins>

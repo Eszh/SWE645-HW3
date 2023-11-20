@@ -12,6 +12,7 @@ pipeline{
 					sh 'mvn clean package'
 					sh 'echo ${BUILD_TIMESTAMP}'
 					sh 'echo $DOCKERHUB_PASS_PSW | docker login -u $DOCKERHUB_PASS_USR --password-stdin'
+					sh 'echo docker tag surveyjar eeshwar4116/survey'
 				
 					
 				}

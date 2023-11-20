@@ -2,6 +2,7 @@ pipeline{
 	agent any
 	environment {
 		DOCKERHUB_PASS = credentials('docker-token')
+		BUILD_TIMESTAMP = sh(script: 'date -u "+%Y%m%d%H%M%S"', returnStdout: true).trim()
 	}
 	stages{
 		stage("Building the Student Survey Image"){

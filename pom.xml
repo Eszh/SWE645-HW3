@@ -18,11 +18,11 @@
 	</properties>
 	<dependencies>
 		<!-- Add Jakarta Persistence API (JPA) dependency -->
-		<dependency>
-		    <groupId>jakarta.persistence</groupId>
-		    <artifactId>jakarta.persistence-api</artifactId>
-		    <version>2.2.3</version>
-		</dependency>
+<dependency>
+    <groupId>jakarta.persistence</groupId>
+    <artifactId>jakarta.persistence-api</artifactId>
+    <version>3.0.0</version>
+</dependency>
 		
 		<!-- Add Spring Boot Starter Data JPA dependency -->
 		<dependency>

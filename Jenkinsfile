@@ -12,7 +12,7 @@ pipeline{
 					sh 'mvn clean package'
 					sh 'echo ${BUILD_TIMESTAMP}'
 					sh 'echo $DOCKERHUB_PASS_PSW | docker login -u $DOCKERHUB_PASS_USR --password-stdin'
-					sh 'docker build -t eeshwar4116/swe645survey:$BUILD_TIMESTAMP .'
+					sh 'docker build -t eeshwar4116/survey:$BUILD_TIMESTAMP .'
 					
 				}
 			}

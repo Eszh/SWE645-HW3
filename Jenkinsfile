@@ -9,7 +9,7 @@ pipeline{
 				script{
 					checkout scm
 					sh 'rm -rf *.jar'
-					sh 'mvn clean package'
+					//sh 'mvn clean package'
 					sh 'echo ${BUILD_TIMESTAMP}'
 					sh 'echo $DOCKERHUB_PASS_PSW | sudo docker login -u $DOCKERHUB_PASS_USR --password-stdin'
 					sh 'docker build -t eeshwar4116/swe645survey:$BUILD_TIMESTAMP .'

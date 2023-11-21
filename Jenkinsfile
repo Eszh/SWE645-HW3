@@ -22,6 +22,8 @@ pipeline{
 		stage("building image docker"){
 			steps{
 				script{
+					sh 'pwd'
+                                        sh 'ls -l'
 					sh 'docker build -t eeshwar4116/survey:$BUILD_TIMESTAMP .'
 				}
 			}

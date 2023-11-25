@@ -40,7 +40,7 @@ pipeline{
 				script{
 					// sh 'kubectl set image deployment/survey container-0=krishna1303/survey -n 645clusternamespace'
 					//sh 'kubectl rollout restart deploy deploy'
-					 sh 'kubectl set image deployment/swedeployment-assign3 container-0=eeshwar4116/survey:$BUILD_TIMESTAMP -n swenamespace'
+					 sh 'kubectl set image deployment/swedeployment-assign3 container-0=eeshwar4116/survey:$BUILD_TIMESTAMP '
 				}
 			}
 		}

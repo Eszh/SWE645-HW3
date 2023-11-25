@@ -19,7 +19,7 @@ pipeline{
          	stage("Pushing image to docker"){
 			steps{
 				script{
-					sh 'docker push eeshwar4116/survey'
+					sh 'docker push eeshwar4116/survey:$BUILD_TIMESTAMP'
 				}
 			}
 		}

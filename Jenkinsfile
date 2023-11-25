@@ -39,7 +39,7 @@ pipeline{
 			steps{
 				script{
 					// sh 'kubectl set image deployment/survey container-0=krishna1303/survey -n 645clusternamespace'
-					sh 'kubectl rollout restart deploy swedeployment-assign3:$BUILD_TIMESTAMP -n swenamespace'
+					sh 'kubectl rollout restart deploy swedeployment-assign3 -n swenamespace'
 					// sh 'kubectl set image deployment/swedeployment-assign3 container-0=eeshwar4116/survey:$BUILD_TIMESTAMP '
 				}
 			}

@@ -16,20 +16,10 @@ pipeline{
 				}
 			}
 		}
-		stage("building image docker"){
+         	stage("Pushing image to docker"){
 			steps{
 				script{
-					sh 'pwd'
-                                        sh 'ls -l'
-					sh 'docker build -t eeshwar4116/survey:$BUILD_TIMESTAMP .'
-				}
-			}
-		}
-
-		stage("Pushing image to docker"){
-			steps{
-				script{
-					sh 'docker push eeshwar4116/survey:$BUILD_TIMESTAMP'
+					sh 'docker push eeshwar4116/survey'
 				}
 			}
 		}

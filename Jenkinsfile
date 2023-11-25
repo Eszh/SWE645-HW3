@@ -12,21 +12,21 @@ pipeline{
 					sh 'mvn clean package'
 					sh 'echo ${BUILD_TIMESTAMP}'
 					sh 'echo $DOCKERHUB_PASS_PSW | docker login -u $DOCKERHUB_PASS_USR --password-stdin'
-					sh 'echo docker tag surveyjar eeshwar4116/survey:$BUILD_TIMESTAMP'
+					sh 'docker build -t eeshwar4116/survey:$BUILD_TIMESTAMP .'
 				}
 			}
 		}
-         	stage("Pushing image to docker"){
+		stage("Pushing image to docker"){
 			steps{
 				script{
-					sh 'docker push eeshwar4116/survey:$BUILD_TIMESTAMP'
+					sh 'docker push eeshwar4116/swe645survey:$BUILD_TIMESTAMP'
 				}
 			}
 		}
 		stage("Deploying to rancher"){
 			steps{
 				script{
-					 sh 'kubectl set image  deployment/swedeployment-assign3 container-0=eeshwar4116/survey:$BUILD_TIMESTAMP'
+					 sh 'kubectl set image  deployment/swedeployment-assign2 container-0=eeshwar4116/swe645survey:$BUILD_TIMESTAMP'
                                   //   sh 'kubectl rollout restart deploy swedeployment'
 
 				}

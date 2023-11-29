@@ -12,16 +12,11 @@ spec:
   destination: 
     server: https://kubernetes.default.svc
     namespace: myapp
+
   syncPolicy:
     syncOptions:
     - CreateNamespace=true
-  automated:
-    selfHeal: true
-    prune: true
-  values: |
-    autoscaling:
-      enabled: true
-      minReplicas: 2
-      maxReplicas: 5
-      targetCPUUtilizationPercentage: 50
-      targetMemoryUtilizationPercentage: 60
+
+    automated:
+      selfHeal: true
+      prune: true

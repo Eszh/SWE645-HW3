@@ -8,7 +8,7 @@ spec:
   source:
     repoURL: https://github.com/Eszh/SWE645-HW3.git
     targetRevision: HEAD
-    path: /extracredit/templates
+    path: templates
   destination: 
     server: https://kubernetes.default.svc
     namespace: myapp
